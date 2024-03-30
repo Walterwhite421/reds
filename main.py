@@ -3,6 +3,7 @@ from pybaseball import statcast_pitcher
 from pybaseball import statcast_batter
 from pybaseball import standings
 from pybaseball import schedule_and_record
+from team_batting import team_batting_bref
 
 def main():
     # Fetch standings for the Reds division in a specific season
@@ -70,7 +71,25 @@ def main():
     except Exception as e:
         print(f"Error fetching data for Jake Fraley: {e}")
 
+def main():
+    # Fetch standings for the Reds division in a specific season
+    standings_data = standings(2024)  # Change the year accordingly
+    reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
+    print("\nStandings for the Reds division:")
+    print(reds_standings)
 
+    try:
+        # Call team_batting function for the Reds for a specific season
+        reds_batting_stats = team_batting_bref('CIN', 2024)
+
+        # Print the batting statistics for the Reds
+        print("\nBatting statistics for the Reds:")
+        print(reds_batting_stats)
+        print()
+    except Exception as e:
+        print(f"Error fetching data for Reds batting statistics: {e}")
+
+    # Other parts of your main function
 
 
 
