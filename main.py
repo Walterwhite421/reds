@@ -18,16 +18,16 @@ def main():
 
 
 
-    # Call playerid_lookup function for Clayton Kershaw
-    player_info_kershaw = playerid_lookup(last='kershaw', first='clayton')
-    player_id_kershaw = player_info_kershaw['key_mlbam'].iloc[0]
+    # Call playerid_lookup function for Graham Ashcraft
+    player_info_ashcraft = playerid_lookup(last='ashcraft', first='graham')
+    player_id_ashcraft = player_info_ashcraft['key_mlbam'].iloc[0]
 
-    # Call statcast_pitcher function for Clayton Kershaw
-    statcast_info_kershaw = statcast_pitcher(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_kershaw)
+    # Call statcast_pitcher function for Graham Ashcraft
+    statcast_info_ashcraft = statcast_pitcher(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_ashcraft)
 
-    # Print the statcast information for Clayton Kershaw
-    print("Statcast information for Clayton Kershaw:")
-    print(statcast_info_kershaw)
+    # Print the statcast information for Graham Ashcraft
+    print("Statcast information for Graham Ashcraft:")
+    print(statcast_info_ashcraft)
     print()
 
     # Call playerid_lookup function for Hunter Greene
