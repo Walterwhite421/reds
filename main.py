@@ -1,7 +1,6 @@
-from pybaseball import playerid_lookup
-from pybaseball import statcast_pitcher
-from pybaseball import standings
-from pybaseball import schedule_and_record
+from pybaseball import playerid_lookup, statcast_pitcher, standings, schedule_and_record
+import pandas as pd
+
 def main():
     # Fetch standings for the Reds division in a specific season
     standings_data = standings(2024)  # Change the year accordingly
@@ -21,38 +20,21 @@ def main():
         print("Statcast information for Frankie Montas:")
         print(statcast_info_montas)
         print()
+
+        # Filter columns related to 'spin' and 'spin rate'
+        spin_columns = statcast_info_montas.filter(like='spin').columns
+
+        # Select only the columns related to 'spin' and 'spin rate'
+        spin_data = statcast_info_montas[spin_columns]
+
+        # Print the DataFrame with spin-related columns
+        print("Spin-related data for Frankie Montas:")
+        print(spin_data)
+        print()
     except Exception as e:
         print(f"Error fetching data for Frankie Montas: {e}")
 
-    try:
-        # Call playerid_lookup function for Graham Ashcraft
-        player_info_ashcraft = playerid_lookup(last='ashcraft', first='graham')
-        player_id_ashcraft = player_info_ashcraft['key_mlbam'].iloc[0]
-
-        # Call statcast_pitcher function for Graham Ashcraft
-        statcast_info_ashcraft = statcast_pitcher(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_ashcraft)
-
-        # Print the statcast information for Graham Ashcraft
-        print("Statcast information for Graham Ashcraft:")
-        print(statcast_info_ashcraft)
-        print()
-    except Exception as e:
-        print(f"Error fetching data for Graham Ashcraft: {e}")
-
-    try:
-        # Call playerid_lookup function for Hunter Greene
-        player_info_greene = playerid_lookup(last='greene', first='hunter')
-        player_id_greene = player_info_greene['key_mlbam'].iloc[0]
-
-        # Call statcast_pitcher function for Hunter Greene
-        statcast_info_greene = statcast_pitcher(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_greene)
-
-        # Print the statcast information for Hunter Greene
-        print("Statcast information for Hunter Greene:")
-        print(statcast_info_greene)
-    except Exception as e:
-        print(f"Error fetching data for Hunter Greene: {e}")
-
+    # Similarly, you can add code to fetch spin-related data for other pitchers
 
 if __name__ == "__main__":
     main()
