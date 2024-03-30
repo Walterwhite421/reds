@@ -57,47 +57,6 @@ def main():
         print(f"Error fetching data for Hunter Greene: {e}")
 
 
-def fetch_statcast_info(player_name, start_date, end_date):
-    try:
-        # Call playerid_lookup function for the player
-        player_info = playerid_lookup(last=player_name.split()[-1], first=player_name.split()[0])
-        player_id = player_info['key_mlbam'].iloc[0]
-
-        # Check if the player is a pitcher or a batter
-        if player_info['mlb_pos'].iloc[0] == 'P':
-            # Call statcast_pitcher function for the pitcher
-            statcast_info = statcast_pitcher(start_dt=start_date, end_dt=end_date, player_id=player_id)
-        else:
-            # Call statcast_batter function for the batter
-            statcast_info = statcast_batter(start_dt=start_date, end_dt=end_date, player_id=player_id)
-
-        # Print the statcast information for the player
-        print(f"Statcast information for {player_name}:")
-        print(statcast_info)
-        print()
-
-    except Exception as e:
-        print(f"Error fetching data for {player_name}: {e}")
-
-def main():
-    # List of players and their corresponding date range
-    players = {
-        'Jake Fraley': ('2024-03-28', '2024-11-02'),
-        'Jonathan India': ('2024-03-28', '2024-11-02'),
-        'Christian Encarnacion-Strand': ('2024-03-28', '2024-11-02'),
-        'Tyler Stephenson': ('2024-03-28', '2024-11-02'),
-        'Elly De La Cruz': ('2024-03-28', '2024-11-02'),
-        'Jeimer Candelario': ('2024-03-28', '2024-11-02'),
-        'Spencer Steer': ('2024-03-28', '2024-11-02'),
-        'Will Benson': ('2024-03-28', '2024-11-02'),
-        'Nick Martin': ('2024-03-28', '2024-11-02')
-    }
-
-    for player, date_range in players.items():
-        fetch_statcast_info(player, date_range[0], date_range[1])
-
-
-    
 
 
 
