@@ -56,7 +56,6 @@ def main():
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
 
-from pybaseball import playerid_lookup, statcast_pitcher, statcast_batter
 
 def fetch_statcast_info(player_name, start_date, end_date):
     try:
@@ -79,6 +78,23 @@ def fetch_statcast_info(player_name, start_date, end_date):
 
     except Exception as e:
         print(f"Error fetching data for {player_name}: {e}")
+
+def main():
+    # List of players and their corresponding date range
+    players = {
+        'Jake Fraley': ('2024-03-28', '2024-11-02'),
+        'Jonathan India': ('2024-03-28', '2024-11-02'),
+        'Christian Encarnacion-Strand': ('2024-03-28', '2024-11-02'),
+        'Tyler Stephenson': ('2024-03-28', '2024-11-02'),
+        'Elly De La Cruz': ('2024-03-28', '2024-11-02'),
+        'Jeimer Candelario': ('2024-03-28', '2024-11-02'),
+        'Spencer Steer': ('2024-03-28', '2024-11-02'),
+        'Will Benson': ('2024-03-28', '2024-11-02'),
+        'Nick Martin': ('2024-03-28', '2024-11-02')
+    }
+
+    for player, date_range in players.items():
+        fetch_statcast_info(player, date_range[0], date_range[1])
 
 
     
