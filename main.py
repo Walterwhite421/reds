@@ -26,7 +26,7 @@ def main():
          print("\nTeam pitching data for the Reds:")
          print(reds_pitching_data)
     
-     except Exception as e:
+    except Exception as e:
          print(f"Error fetching team pitching data for the Reds: {e}")
         
 
