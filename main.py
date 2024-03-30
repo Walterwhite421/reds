@@ -59,7 +59,7 @@ def main():
         
     try:
         # Get team batting data for the Reds
-        reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
+        reds_batting_data = team_batting.py(team='CIN', start_season=2024, end_season=2024)
         print("\nTeam batting data for the Reds:")
         print(reds_batting_data)
     
