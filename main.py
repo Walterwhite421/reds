@@ -20,14 +20,14 @@ def main():
     
     except Exception as e:
         print(f"Error fetching team batting data for the Reds: {e}")
-   try:
-        # Get team pitching data for the Reds
-        reds_pitching_data = team_pitching_bref(team='CIN', start_season=2024, end_season=2024)
-        print("\nTeam pitching data for the Reds:")
-        print(reds_pitching_data)
+    try:
+         # Get team pitching data for the Reds
+         reds_pitching_data = team_pitching_bref(team='CIN', start_season=2024, end_season=2024)
+         print("\nTeam pitching data for the Reds:")
+         print(reds_pitching_data)
     
-    except Exception as e:
-        print(f"Error fetching team pitching data for the Reds: {e}")
+     except Exception as e:
+         print(f"Error fetching team pitching data for the Reds: {e}")
         
 
     try:
