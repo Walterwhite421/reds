@@ -17,7 +17,7 @@ def main():
     print(reds_record_2024.loc[reds_record_2024.Date.str.contains("May 16"), :])
 
     # Call playerid_lookup function for Frankie Montas
-    player_info_ashcraft = playerid_lookup(last='montas', first='frankie')
+    player_info_montas = playerid_lookup(last='montas', first='frankie')
     player_id_montas = player_info_montas['key_mlbam'].iloc[0]
 
     # Call statcast_pitcher function for Frankie Montas
