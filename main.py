@@ -56,14 +56,14 @@ def main():
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
     
-     try:
-        # Call statcast_batter function for Reds batters against specific teams
-        reds_batter_vs_team = statcast_batter('2024-03-28', '2024-09-28', team='CIN', team_batting=True)
+    try:
+       # Call statcast_batter function for Reds batters against specific teams
+       reds_batter_vs_team = statcast_batter('2024-03-28', '2024-09-28', team='CIN', team_batting=True)
 
-        # Print the statcast information for Reds batters against specific teams
-        print("Statcast information for Reds batters against specific teams:")
-        print(reds_batter_vs_team)
-        print()
+       # Print the statcast information for Reds batters against specific teams
+       print("Statcast information for Reds batters against specific teams:")
+       print(reds_batter_vs_team)
+       print()
     except Exception as e:
         print(f"Error fetching data for Reds batters against specific teams: {e}")
 
