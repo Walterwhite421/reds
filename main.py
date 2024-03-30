@@ -15,7 +15,7 @@ def main():
         player_id_montas = player_info_montas['key_mlbam'].iloc[0]
 
         # Call statcast_pitcher function for Frankie Montas
-        statcast_info_montas = statcast_pitcher(start_dt='2024-03-28', end_dt='2023-09-28', player_id=player_id_montas)
+        statcast_info_montas = statcast_pitcher(start_dt='2024-03-28', end_dt='2024-09-28', player_id=player_id_montas)
 
         # Print the statcast information for Frankie Montas
         print("Statcast information for Frankie Montas:")
