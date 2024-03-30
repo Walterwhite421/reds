@@ -57,13 +57,17 @@ def main():
         print(f"Error fetching data for Hunter Greene: {e}")
     
     try:
-       # Call statcast_batter function for Reds batters against specific teams
-       reds_batter_vs_team = statcast_batter('2024-03-28', '2024-09-28', team='CIN', team_batting=True)
+        # Call statcast_batter function for Reds batters
+        reds_batter_data = statcast_batter('2024-03-28', '2024-09-28')
 
-       # Print the statcast information for Reds batters against specific teams
-       print("Statcast information for Reds batters against specific teams:")
-       print(reds_batter_vs_team)
-       print()
+        # Filter data for Reds batters against specific teams
+        reds_batter_vs_team = reds_batter_data[reds_batter_data['home_team'] == 'CIN']  # Assuming CIN is the team abbreviation for the Reds
+        reds_batter_vs_team = reds_batter_vs_team.append(reds_batter_data[reds_batter_data['away_team'] == 'CIN'])
+
+        # Print the statcast information for Reds batters against specific teams
+        print("Statcast information for Reds batters against specific teams:")
+        print(reds_batter_vs_team)
+        print()
     except Exception as e:
         print(f"Error fetching data for Reds batters against specific teams: {e}")
 
