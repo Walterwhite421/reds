@@ -26,7 +26,7 @@ def main():
     print(statcast_info_greene)
 
     # Fetch standings for the Reds division in a specific season
-    standings_data = standings(2023)  # Change the year accordingly
+    standings_data = standings(2024)  # Change the year accordingly
     reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
     print("\nStandings for the Reds division:")
     print(reds_standings)
