@@ -3,7 +3,7 @@ from pybaseball import statcast_pitcher
 from pybaseball import statcast_batter
 from pybaseball import standings
 from pybaseball import schedule_and_record
-from pybaseball import team_batting  # Importing the team_batting_bref function
+from pybaseball.team_batting import team_batting_bref # Importing the team_batting_bref function
 
 def main():
     # Fetch standings for the Reds division in a specific season
@@ -59,7 +59,7 @@ def main():
         
     try:
         # Get team batting data for the Reds
-        reds_batting_data = team_batting.py(team='CIN', start_season=2024, end_season=2024)
+        reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
         print("\nTeam batting data for the Reds:")
         print(reds_batting_data)
     
