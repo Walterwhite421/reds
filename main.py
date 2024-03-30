@@ -9,12 +9,6 @@ def main():
     print("\nStandings for the Reds division:")
     print(reds_standings)
     
-    # Get the Reds' record for 2024
-    reds_record_2024 = schedule_and_record(2024, 'CIN')
-
-    # Display the Reds' record for May 16, 2024
-    print("\nReds' record for May 16, 2024:")
-    print(reds_record_2024.loc[reds_record_2024.Date.str.contains("May 16"), :])
 
     # Call playerid_lookup function for Frankie Montas
     player_info_montas = playerid_lookup(last='montas', first='frankie')
