@@ -55,6 +55,16 @@ def main():
     
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
+        
+    try:
+        # Get team batting data for the Reds
+        reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
+        print("\nTeam batting data for the Reds:")
+        print(reds_batting_data)
+    
+    except Exception as e:
+        print(f"Error fetching team batting data for the Reds: {e}")
+
     try:
         # Call playerid_lookup function for Jake Fraley
         player_info_fraley = playerid_lookup(last='fraley', first='jake')
