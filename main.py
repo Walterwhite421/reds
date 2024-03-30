@@ -5,7 +5,6 @@ def main():
     # Call playerid_lookup function for Clayton Kershaw
     player_info = playerid_lookup(last='kershaw', first='clayton')
 
-
     # Extract the MLBAM ID (key_mlbam) from the player_info DataFrame
     player_id = player_info['key_mlbam'].iloc[0]
 
