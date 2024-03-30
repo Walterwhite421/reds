@@ -3,7 +3,7 @@ from pybaseball import statcast_pitcher
 from pybaseball import statcast_batter
 from pybaseball import standings
 from pybaseball import schedule_and_record
-from pybaseball import team_batting.py  # Importing the team_batting_bref function
+from pybaseball import team_batting  # Importing the team_batting_bref function
 
 def main():
     # Fetch standings for the Reds division in a specific season
