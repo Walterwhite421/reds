@@ -11,6 +11,14 @@ def main():
     reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
     print("\nStandings for the Reds division:")
     print(reds_standings)
+    try:
+        # Get team batting data for the Reds
+        reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
+        print("\nTeam batting data for the Reds:")
+        print(reds_batting_data)
+    
+    except Exception as e:
+        print(f"Error fetching team batting data for the Reds: {e}")
 
     try:
         # Call playerid_lookup function for Frankie Montas
@@ -57,14 +65,7 @@ def main():
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
         
-    try:
-        # Get team batting data for the Reds
-        reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
-        print("\nTeam batting data for the Reds:")
-        print(reds_batting_data)
-    
-    except Exception as e:
-        print(f"Error fetching team batting data for the Reds: {e}")
+
 
     try:
         # Call playerid_lookup function for Jake Fraley
