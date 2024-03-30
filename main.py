@@ -1,7 +1,9 @@
 from pybaseball import playerid_lookup
 from pybaseball import statcast_pitcher
+from pybaseball import statcast_batter
 from pybaseball import standings
 from pybaseball import schedule_and_record
+
 def main():
     # Fetch standings for the Reds division in a specific season
     standings_data = standings(2024)  # Change the year accordingly
@@ -50,8 +52,21 @@ def main():
         # Print the statcast information for Hunter Greene
         print("Statcast information for Hunter Greene:")
         print(statcast_info_greene)
+    
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
+    
+     try:
+        # Call statcast_batter function for Reds batters against specific teams
+        reds_batter_vs_team = statcast_batter('2024-03-28', '2024-09-28', team='CIN', team_batting=True)
+
+        # Print the statcast information for Reds batters against specific teams
+        print("Statcast information for Reds batters against specific teams:")
+        print(reds_batter_vs_team)
+        print()
+    except Exception as e:
+        print(f"Error fetching data for Reds batters against specific teams: {e}")
+
 
 
 if __name__ == "__main__":
