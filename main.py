@@ -55,7 +55,20 @@ def main():
     
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
+    try:
+        # Call playerid_lookup function for Jake Fraley
+        player_info_fraley = playerid_lookup(last='fraley', first='jake')
+        player_id_fraley = player_info_fraley['key_mlbam'].iloc[0]
 
+        # Call statcast_pitcher function for Jake Fraley
+        statcast_info_fraley = statcast_batter(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_fraley)
+
+        # Print the statcast information for Jake Fraley
+        print("Statcast information for Jake Fraley:")
+        print(statcast_info_fraley)
+    
+    except Exception as e:
+        print(f"Error fetching data for Jake Fraley: {e}")
 
 
 
