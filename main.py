@@ -2,6 +2,13 @@ from pybaseball import playerid_lookup
 from pybaseball import statcast_pitcher
 from pybaseball import standings
 def main():
+    # Fetch standings for the Reds division in a specific season
+    standings_data = standings(2024)  # Change the year accordingly
+    reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
+    print("\nStandings for the Reds division:")
+    print(reds_standings)
+
+
     # Call playerid_lookup function for Clayton Kershaw
     player_info_kershaw = playerid_lookup(last='kershaw', first='clayton')
     player_id_kershaw = player_info_kershaw['key_mlbam'].iloc[0]
@@ -25,11 +32,6 @@ def main():
     print("Statcast information for Hunter Greene:")
     print(statcast_info_greene)
 
-    # Fetch standings for the Reds division in a specific season
-    standings_data = standings(2024)  # Change the year accordingly
-    reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
-    print("\nStandings for the Reds division:")
-    print(reds_standings)
 
 if __name__ == "__main__":
     main()
