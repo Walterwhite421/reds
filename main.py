@@ -1,12 +1,21 @@
 from pybaseball import playerid_lookup
 from pybaseball import statcast_pitcher
 from pybaseball import standings
+from pybaseball import schedule_and_record
 def main():
     # Fetch standings for the Reds division in a specific season
     standings_data = standings(2024)  # Change the year accordingly
     reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
     print("\nStandings for the Reds division:")
     print(reds_standings)
+    
+    # Get the Reds' record for 2024
+    reds_record_2024 = schedule_and_record(2024, 'CIN')
+
+    # Display the Reds' record for May 16, 2024
+    print("\nReds' record for May 16, 2024:")
+    print(reds_record_2024.loc[reds_record_2024.Date.str.contains("May 16"), :])
+
 
 
     # Call playerid_lookup function for Clayton Kershaw
