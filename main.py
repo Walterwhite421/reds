@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from pybaseball import playerid_lookup
 from pybaseball import statcast_pitcher
 from pybaseball import statcast_batter
