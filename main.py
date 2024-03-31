@@ -8,18 +8,67 @@ from pybaseball import schedule_and_record
 from pybaseball.team_pitching import team_pitching_bref  # Importing the team_pitching_bref function
 from pybaseball.team_batting import team_batting_bref # Importing the team_batting_bref function
 
+def get_player_statistics(pitcher_last_name, batter_last_name):
+    try:
+        # Call playerid_lookup function for pitcher
+        pitcher_info = playerid_lookup(last=pitcher_last_name)
+        pitcher_id = pitcher_info['key_mlbam'].iloc[0]
+
+        # Call statcast_pitcher function for pitcher
+        pitcher_statcast_info = statcast_pitcher(start_dt='2024-03-28', end_dt='2024-11-02', player_id=pitcher_id)
+
+        # Print the statcast information for pitcher
+        print(f"\nStatcast information for {pitcher_last_name}:")
+        print(pitcher_statcast_info)
+        print()
+    except Exception as e:
+        print(f"Error fetching data for {pitcher_last_name}: {e}")
+
+    try:
+        # Call playerid_lookup function for batter
+        batter_info = playerid_lookup(last=batter_last_name)
+        batter_id = batter_info['key_mlbam'].iloc[0]
+
+        # Call statcast_batter function for batter
+        batter_statcast_info = statcast_batter(start_dt='2024-03-28', end_dt='2024-11-02', player_id=batter_id)
+
+        # Print the statcast information for batter
+        print(f"\nStatcast information for {batter_last_name}:")
+        print(batter_statcast_info)
+    except Exception as e:
+        print(f"Error fetching data for {batter_last_name}: {e}")
+
+
 def main():
     # Fetch standings for the Reds division in a specific season
     standings_data = standings(2024)  # Change the year accordingly
     reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
     print("\nStandings for the Reds division:")
     print(reds_standings)
+
+    try:
+        # Call playerid_lookup function for batter
+        batter_info = playerid_lookup(last=batter_last_name)
+        batter_id = batter_info['key_mlbam'].iloc[0]
+
+        # Call statcast_batter function for batter
+        batter_statcast_info = statcast_batter(start_dt='2024-03-28', end_dt='2024-11-02', player_id=batter_id)
+
+        # Print the statcast information for batter
+        print(f"\nStatcast information for {batter_last_name}:")
+        print(batter_statcast_info)
+    except Exception as e:
+        print(f"Error fetching data for {batter_last_name}: {e}")
+
+
+
+
     try:
         # Get team batting data for the Reds
         reds_batting_data = team_batting_bref(team='CIN', start_season=2024, end_season=2024)
         print("\nTeam batting data for the Reds:")
         print(reds_batting_data)
-    
+
     except Exception as e:
         print(f"Error fetching team batting data for the Reds: {e}")
     try:
@@ -27,10 +76,10 @@ def main():
          reds_pitching_data = team_pitching_bref(team='CIN', start_season=2024, end_season=2024)
          print("\nTeam pitching data for the Reds:")
          print(reds_pitching_data)
-    
+
     except Exception as e:
          print(f"Error fetching team pitching data for the Reds: {e}")
-        
+
 
     try:
         # Call playerid_lookup function for Frankie Montas
@@ -73,10 +122,10 @@ def main():
         # Print the statcast information for Hunter Greene
         print("Statcast information for Hunter Greene:")
         print(statcast_info_greene)
-    
+
     except Exception as e:
         print(f"Error fetching data for Hunter Greene: {e}")
-        
+
 
 
     try:
@@ -90,12 +139,14 @@ def main():
         # Print the statcast information for Jake Fraley
         print("Statcast information for Jake Fraley:")
         print(statcast_info_fraley)
-    
+
     except Exception as e:
         print(f"Error fetching data for Jake Fraley: {e}")
 
 
+    input("\nPress Enter to exit...")
 
 
 if __name__ == "__main__":
     main()
+
