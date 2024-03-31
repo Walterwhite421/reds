@@ -47,7 +47,7 @@ def main():
         player_id_greene = player_info_greene['key_mlbam'].iloc[0]
 
         # Call statcast_pitcher function for Hunter Greene
-        statcast_info_greene = statcast_pitcher(start_dt='2023-04-20', end_dt='2023-09-28', player_id=player_id_greene)
+        statcast_info_greene = statcast_pitcher(start_dt='2024-03-28', end_dt='2024-11-02', player_id=player_id_greene)
 
         # Print the statcast information for Hunter Greene
         print("Statcast information for Hunter Greene:")
