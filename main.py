@@ -38,13 +38,16 @@ def get_player_statistics(pitcher_last_name, batter_last_name):
     except Exception as e:
         print(f"Error fetching data for {batter_last_name}: {e}")
 
-
 def main():
     # Fetch standings for the Reds division in a specific season
     standings_data = standings(2024)  # Change the year accordingly
     reds_standings = standings_data[4]  # Assuming the Reds are in the fifth division
     print("\nStandings for the Reds division:")
     print(reds_standings)
+
+    pitcher_last_name = input("Enter pitcher's last name: ")
+    batter_last_name = input("Enter batter's last name: ")
+    get_player_statistics(pitcher_last_name, batter_last_name)
 
     try:
         # Call playerid_lookup function for batter
@@ -149,4 +152,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
